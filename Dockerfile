@@ -19,7 +19,7 @@ RUN apt-get update -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Run the pip command to install the requirements
-RUN pip instal --no-cache-dir -r /app/requirements.txt \
+RUN pip install --no-cache-dir -r /app/requirements.txt \
     && rm -rf /root/.cache/pip
 
 # Copy files or folders from source to the dest path in the image's filesystem.
