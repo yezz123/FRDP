@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRDP</title>
+    <link
+      rel="shortcut icon"
+      type="image/icon"
+      href="https://raw.githubusercontent.com/BnademOverflow/BnademOverflow/main/src/images/icon.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="wrap">
+      <nav>
+        <container>
+          <div class="logo-wrap">
+            <div class="logo-text">FRDP</div>
+          </div>
+          <div class="nav_menu">
+            <ul>
+              <li><a href="/docs">docs</a></li>
+              <li><a href="/redoc">redoc</a></li>
+              <li>
+                <a href="https://www.postman.com/downloads/" target="_blank"
+                  >Postman</a
+                >
+              </li>
+            </ul>
+          </div>
+        </container>
+      </nav>
+      <div id="nav_big_text"></div>
+
+      <footer>
+        <div class="social_links">
+          <a id="twitter" href="https://twitter.com/BnademOverFlow">
+            <svg
+              fill="none"
+              class="rubicons brands-twitter"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M22 4a11.4143 11.4143 0 01-3.072 1.357 3.9488 3.9488 0 00-6.2459.373A3.9483 3.9483 0 0012 8v.881C8 10 5 8 3 5c0 0-3 8 5.475 11.348A11.1144 11.1144 0 012 18c7.932 4.407 17.932.111 17.932-10.025A8.527 8.527 0 0022 4z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="copyright">
+          ©2021 <a href="https://bnademoverflow.com">BnademOverflow</a> - All
+          rights reserved.
+        </div>
+      </footer>
+    </div>
+    <!-- partial -->
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+  </body>
+</html>
