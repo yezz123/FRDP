@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: "frdp"
+    volumes:
+      - ./api
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    env_file:
+      - ./.env
+    ports:
+      - "9000:8000"
+    depends_on:
+      - pgdb
+
+  pgdb:
+    image: postgres:12
+    container_name: postgres_db
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    ports:
+      - "5499:5432"
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    env_file:
+      - ./.env
+    ports:
+      - "5050:80"
+    depends_on:
+      - pgdb
+
+volumes:
+  postgres-data:
