@@ -1,26 +1,34 @@
+# Pull base image
 FROM ubuntu:16.04
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
+FROM python:3.7
 
-RUN apt-get update && apt-get upgrade -y
-
-WORKDIR /app
-
+# Set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONBUFFERED 1
+ENV PYTHONUNBUFFERED 1
 
-COPY ./ /app
+# Set the working directory for any subsequent
+WORKDIR /app/
 
-RUN apk add --no-cache --virtual .build-deps build-base \
-  libressl-dev libffi-dev gcc musl-dev python3-dev \
-  libc-dev libxslt-dev libxml2-dev bash \
-  postgresql-dev \
-  && pip install --upgrade pip setuptools wheel \
-  && pip install --no-cache-dir -r /app/requirements.txt \
-  && rm -rf /root/.cache/pip
+# Copy Requirements to app folder
+COPY ./requirements.txt /app/requirements.txt
 
+# install gcc and update environment
+RUN apt-get update \
+    && apt-get install gcc -y \
+    && apt-get clean
+
+# Run the pip command to install the requirements
+RUN pip install -r /app/requirements.txt \
+    && rm -rf /root/.cache/pip
+
+# Copy files or folders from source to the dest path in the image's filesystem.
+COPY . /app/
+
+# Set the environment variable key to the value value.
 ENV ACCESS_LOG=${ACCESS_LOG:-/proc/1/fd/1}
 ENV ERROR_LOG=${ERROR_LOG:-/proc/1/fd/2}
 
+# Configures the container to be run as an executable.
 ENTRYPOINT /usr/local/bin/gunicorn \
   -b 0.0.0.0:80 \
   -w 4 \
@@ -28,3 +36,6 @@ ENTRYPOINT /usr/local/bin/gunicorn \
   --chdir /app \
   --access-logfile "$ACCESS_LOG" \
   --error-logfile "$ERROR_LOG"
+
+# Define the network ports that this container will listen on at runtime.
+EXPOSE 8000
