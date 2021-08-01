@@ -1,5 +1,7 @@
 ![Header](.github/Header.svg)
 
+# FRDP [![CodeFactor](https://www.codefactor.io/repository/github/bnademoverflow/frdp/badge/main)](https://www.codefactor.io/repository/github/bnademoverflow/frdp/overview/main)
+
 Boilerplate code for quick docker implementation of REST API with JWT Authentication using FastAPI, PostgreSQL and PgAdmin ⛏.
 
 ## Getting Started
