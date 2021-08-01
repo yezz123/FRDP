@@ -13,12 +13,13 @@ WORKDIR /app/
 COPY ./requirements.txt /app/requirements.txt
 
 # install gcc and update environment
-RUN apt-get update \
-    && apt-get install gcc -y \
-    && apt-get clean
+RUN apt-get update -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends gcc \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Run the pip command to install the requirements
-RUN pip install -r /app/requirements.txt \
+RUN pip instal --no-cache-dir -r /app/requirements.txt \
     && rm -rf /root/.cache/pip
 
 # Copy files or folders from source to the dest path in the image's filesystem.
