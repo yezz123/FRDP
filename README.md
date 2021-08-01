@@ -6,20 +6,20 @@ Boilerplate code for quick docker implementation of REST API with JWT Authentica
 
 ### Features
 
-* Auth Tag:
+| Auth              | Description                                                                     |
+|-------------------|---------------------------------------------------------------------------------|
+|Login Access Token | OAuth2 compatible token login, get an access token for future requests          |
+|Check Session      | Test if a user is logged in by checking if a valid access token is in the header|
+|Recover Password   | Password Recovery                                                               |
+|Reset Password     | Reset your password                                                             |
 
-* [x] Login Access Token
-* [x] Check Session
-* [x] Recover Password
-* [x] Reset Password
-
-* Users Tag:
-
-* [x] Create New User
-* [x] Get Current User By Id
-* [x] Update Current User
-* [x] Update Other User
-* [x] Create User (Without Authentication)
+| User                               | Description                                      |
+|------------------------------------|--------------------------------------------------|
+|Create New User                     | Create a new user                                |
+|Get Current User By Id              | Get current user                                 |
+|Update Current User                 | Update own user                                  |
+|Update Other User (SuperUser)       | Update a user                                    |
+|Create User (Without Authentication)| Create new user without the need to be logged in.|
 
 ### Prerequisites
 
