@@ -66,7 +66,6 @@ def recover_password(email: str, db: Session = Depends(deps.get_db)) -> Any:
     Password Recovery
     """
     user = user1.get_by_email(db, email=email)
-
     if not user:
         raise HTTPException(
             status_code=404,

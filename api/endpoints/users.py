@@ -59,8 +59,7 @@ def update_Current_User(
         user_in.full_name = full_name
     if email is not None:
         user_in.email = email
-    user = user1.update(db, db_obj=current_user, obj_in=user_in)
-    return user
+    return user1.update(db, db_obj=current_user, obj_in=user_in)
 
 
 @router.get("/me", response_model=User)
