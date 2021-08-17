@@ -1,6 +1,6 @@
 aiofiles==0.7.0
 asgiref==3.4.1
-astroid==2.6.6
+astroid==2.7.1
 bcrypt==3.2.0
 cachetools==4.2.2
 certifi==2021.5.30
