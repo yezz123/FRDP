@@ -9,7 +9,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 import models
-from crud import crud_user
+import crud
 from crud.crud_user import CRUDUser
 from api import deps
 from core import security
@@ -90,7 +90,7 @@ def reset_password(
     email = verify_password_reset_token(token)
     if not email:
         raise HTTPException(status_code=400, detail="Invalid token")
-    user = crud_user.CRUDUser.get_by_email(db, email=email)
+    user = crud.user.get_by_email(db, email=email)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     hashed_password = get_password_hash(new_password)
