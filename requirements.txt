@@ -11,7 +11,7 @@ click==8.0.1
 colorama==0.4.4
 cssselect==1.1.0
 cssutils==2.3.0
-databases==0.4.3
+databases==0.5.2
 dnspython==2.1.0
 ecdsa==0.17.0
 email-validator==1.1.3
