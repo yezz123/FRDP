@@ -6,7 +6,7 @@ cachetools==4.2.2
 certifi==2021.5.30
 cffi==1.14.6
 chardet==4.0.0
-charset-normalizer==2.0.4
+charset-normalizer==2.0.5
 click==8.0.1
 colorama==0.4.4
 cssselect==1.1.0
