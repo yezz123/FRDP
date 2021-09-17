@@ -1,5 +1,3 @@
-from crud.crud_user import CRUDUser
-from schemas.user import User, UserCreate, UserUpdate
 from typing import Any
 
 from fastapi import APIRouter, Body, Depends, HTTPException
@@ -12,6 +10,8 @@ import models
 import schemas
 from api import deps
 from core.config import settings
+from crud.crud_user import CRUDUser
+from schemas.user import User, UserCreate, UserUpdate
 
 router = APIRouter()
 
@@ -23,8 +23,7 @@ def create_New_user(
     *,
     db: Session = Depends(deps.get_db),
     user_in: schemas.user.UserCreate,
-    current_user: models.user.User = Depends(
-        deps.get_current_active_superuser),
+    current_user: models.user.User = Depends(deps.get_current_active_superuser),
 ) -> Any:
     """
     Create new user.
@@ -79,8 +78,7 @@ def update_Other_user(
     db: Session = Depends(deps.get_db),
     user_id: int,
     user_in: UserUpdate,
-    current_user: models.user.User = Depends(
-        deps.get_current_active_superuser),
+    current_user: models.user.User = Depends(deps.get_current_active_superuser),
 ) -> Any:
     """
     Update a user.
@@ -97,11 +95,11 @@ def update_Other_user(
 
 @router.post("/Create", response_model=User)
 def create_user(
-        *,
-        db: Session = Depends(deps.get_db),
-        email: EmailStr = Body(...),
-        full_name: str = Body(None),
-        password: str = Body(...),
+    *,
+    db: Session = Depends(deps.get_db),
+    email: EmailStr = Body(...),
+    full_name: str = Body(None),
+    password: str = Body(...),
 ) -> Any:
     """
     Create new user without the need to be logged in.
