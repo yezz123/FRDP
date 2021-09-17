@@ -6,13 +6,12 @@ services:
       dockerfile: Dockerfile
     container_name: "frdp"
     volumes:
-      - ./api
       - /var/run/docker.sock:/var/run/docker.sock
     command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000
     env_file:
       - ./.env
     ports:
-      - "9000:8000"
+      - "8000:8000"
     depends_on:
       - pgdb
 
@@ -25,7 +24,7 @@ services:
     env_file:
       - ./.env
     ports:
-      - "5499:5432"
+      - "5432:5432"
 
   pgadmin:
     container_name: pgadmin

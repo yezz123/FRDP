@@ -42,95 +42,67 @@ $ cd FRDP
 
 ### Creating virtual environment
 
-* Install `pipenv` a global python project `pip install pipenv`
-* Create a `virtual environment` for this project
+* Create a virtual environment using virtualenv.
 
 ```shell
-# creating pipenv environment for python 3
-$ pipenv --three
+# creating virtual environment
+$ virtualenv venv
 
-# activating the pipenv environment
-$ pipenv shell
+# activate virtual environment
+$ source venv/bin/activate
 
-# if you have multiple python 3 versions installed then
-$ pipenv install -d --python 3.8
-
-# install all dependencies (include -d for installing dev dependencies)
-$ pipenv install -d
+# install all dependencies
+$ pip install -r requirements.txt
 ```
 
-### Configured Enviromment
+### Environment variables
 
-#### Database
+* [x] Using PostgreSQL as database server ⛏.
+* [x] Using PgAdmin as database client ⛏.
+* [x] Dockerized the Boilerplate code ⛏.
 
-* Using SQLAlchemy to Connect to our PostgreSQL Database
-* Containerization The Database.
-* Drop your PostgreSQL Configuration at the `.env.sample` and Don't Forget to change the Name to `.env`
+* Drop your own Configuration at the `.env.sample` and Don't Forget to change the Name to `.env` (`$ cp .env.sample .env`).
 
 ```conf
-# example of Configuration for the .env file
+# Backend API Configuration
+PROJECT_NAME=
+DOMAIN=
 
-# Generate secret key using openssl rand -hex 32
-SECRET_KEY= 4yi87D8FHRucoVyKXFUcMC/yb5YpLxz6PRX6YHm4kLU
+# Security Configuration
+SECRET_KEY=
+USERS_OPEN_REGISTRATION=
+EMAIL_RESET_TOKEN_EXPIRE_HOURS=
 
-# Email Defaut Intiger ex. 30, 60, 90
-EMAIL_RESET_TOKEN_EXPIRE_HOURS= 60
-
-# Server Default
-SERVER_NAME=API
-SERVER_HOST=http://localhost:8900
+# Server Settings
+SERVER_NAME=
+SERVER_HOST=
 
 # Postgres default username and password
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=admin
-POSTGRES_DB=admin
-POSTGRES_PORT=5500
-POSTGRES_SERVER=localhost
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
+POSTGRES_PORT=
+POSTGRES_SERVER=
 
-PGADMIN_LISTEN_PORT=5050
-PGADMIN_DEFAULT_EMAIL=admin@admin.com
-PGADMIN_DEFAULT_PASSWORD=admin
-```
-
-### Running the Application
-
-* To run the [Main](main.py) we need to use [uvicorn](https://www.uvicorn.org/) a lightning-fast ASGI server implementation, using uvloop and httptools.
-
-```sh
-# To run the Application under a reload enviromment use -- reload
-$ uvicorn main:app --reload
+# PGADMIN_LISTEN_PORT=
+PGADMIN_DEFAULT_EMAIL=
+PGADMIN_DEFAULT_PASSWORD=
 ```
 
 ## Running the Docker Container
 
 * We have the Dockerfile created in above section. Now, we will use the Dockerfile to create the image of the FastAPI app and then start the FastAPI app container.
+* Using a preconfigured `Makefile` tor run the Docker Compose:
 
 ```sh
-docker build
-```
+# Pull the latest image
+$ make pull
 
-* list all the docker images and you can also see the image `frdp:latest` in the list.
+# Build the image
+$ make build
 
-```sh
-docker images
-```
-
-* run the application at port 5000. The various options used are:
-
-> * `-p`: publish the container's port to the host port.
-> * `-d`: run the container in the background.
-> * `-i`: run the container in interactive mode.
-> * `-t`: to allocate pseudo-TTY.
-> * `--name`: name of the container
-
-```sh
-docker container run -p 5000:5000 -dit --name FRDP frdp:latest
-```
-
-* Check the status of the docker container
-
-```sh
-docker container ps
+# Run the container
+$ make start
 ```
 
 ## Preconfigured Packages

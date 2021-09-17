@@ -1,6 +1,8 @@
 from datetime import datetime, timedelta
 from typing import Optional
+
 from jose import jwt
+
 from core.config import settings
 
 
@@ -10,13 +12,7 @@ def generate_password_reset_token(email: str) -> str:
     expires = now + delta
     exp = expires.timestamp()
     return jwt.encode(
-        {
-            "exp": exp,
-            "nbf": now,
-            "sub": email
-        },
-        settings.SECRET_KEY,
-        algorithm="HS256",
+        {"exp": exp, "nbf": now, "sub": email}, settings.SECRET_KEY, algorithm="HS256",
     )
 
 
