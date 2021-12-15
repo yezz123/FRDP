@@ -10,12 +10,12 @@ import models
 from api import deps
 from core import security
 from core.config import settings
+from core.password import generate_password_reset_token, verify_password_reset_token
 from core.security import get_password_hash
 from crud.crud_user import CRUDUser
 from schemas.msg import Msg
 from schemas.token import Token
 from schemas.user import User
-from utils import generate_password_reset_token, verify_password_reset_token
 
 router = APIRouter()
 
