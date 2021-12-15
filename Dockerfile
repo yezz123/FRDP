@@ -1,32 +1,20 @@
 # Pull base image
-FROM python:3.9
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
 # Set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Set the working directory for any subsequent
-WORKDIR /app/
+RUN apt update && apt upgrade -y
 
-# Copy Requirements to app folder
-COPY ./requirements.txt /app/requirements.txt
+RUN apt install -y -q build-essential python3-pip python3-dev
+RUN pip3 install -U pip setuptools wheel
+RUN pip3 install gunicorn uvloop httptools
 
-# install gcc and update environment
-RUN apt-get update -y --no-install-recommends \
-    && apt-get install -y --no-install-recommends gcc \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
 
-# Run the pip command to install the requirements
-RUN pip install --no-cache-dir -r /app/requirements.txt \
-    && rm -rf /root/.cache/pip
+COPY ./ /app
 
-# Copy files or folders from source to the dest path in the image's filesystem.
-COPY . /app/
-
-# Set the environment variable key to the value value.
 ENV ACCESS_LOG=${ACCESS_LOG:-/proc/1/fd/1}
 ENV ERROR_LOG=${ERROR_LOG:-/proc/1/fd/2}
-
-# Define the network ports that this container will listen on at runtime.
-EXPOSE 8000

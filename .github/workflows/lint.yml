@@ -1,22 +1,27 @@
-name: Test Linting
+name: FRDP CI
 
 on:
   push:
-    branches: [main]
+    branches: ["main"]
   pull_request:
-    branches: [main]
+    branches: ["main"]
 
 jobs:
-  build:
+  linter:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10"]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.9
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: test linting
-        run: pre-commit run --all-files
+          python-version: ${{ matrix.python-version }}
+      - name: pull the image
+        run: make pull
+      - name: build the image
+        run: make build
+      - name: Lint
+        run: make lint
