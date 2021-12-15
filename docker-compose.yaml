@@ -11,7 +11,7 @@ services:
     env_file:
       - ./.env
     ports:
-      - "8000:8000"
+      - 8000:8000
     depends_on:
       - pgdb
 
@@ -24,7 +24,7 @@ services:
     env_file:
       - ./.env
     ports:
-      - "5432:5432"
+      - 5432:5432
 
   pgadmin:
     container_name: pgadmin
@@ -32,7 +32,7 @@ services:
     env_file:
       - ./.env
     ports:
-      - "5050:80"
+      - 5050:80
     depends_on:
       - pgdb
 
