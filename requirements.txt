@@ -53,7 +53,7 @@ six==1.16.0
 SQLAlchemy==1.4.23
 starlette==0.14.2
 toml==0.10.2
-typing-extensions==3.10.0.2
+typing-extensions==4.0.1
 urllib3==1.26.7
 uvicorn==0.15.0
 virtualenv==20.8.0
