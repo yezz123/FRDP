@@ -34,7 +34,7 @@ MarkupSafe==2.0.1
 mccabe==0.6.1
 nodeenv==1.6.0
 passlib==1.7.4
-platformdirs==2.3.0
+platformdirs==2.4.0
 pre-commit==2.15.0
 premailer==3.10.0
 psycopg2==2.9.2
