@@ -1,7 +1,7 @@
 aiofiles==0.8.0
 asgiref==3.4.1
 astroid==2.9.0
-backports.entry-points-selectable==1.1.0
+backports.entry-points-selectable==1.1.1
 bcrypt==3.2.0
 cachetools==4.2.4
 certifi==2021.10.8
@@ -35,7 +35,7 @@ mccabe==0.6.1
 nodeenv==1.6.0
 passlib==1.7.4
 platformdirs==2.4.0
-pre-commit==2.15.0
+pre-commit==2.16.0
 premailer==3.10.0
 psycopg2==2.9.2
 pyasn1==0.4.8
