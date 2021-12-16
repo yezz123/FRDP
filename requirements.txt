@@ -11,7 +11,7 @@ chardet==4.0.0
 charset-normalizer==2.0.9
 click==8.0.3
 colorama==0.4.4
-cryptography==3.4.8
+cryptography==36.0.1
 cssselect==1.1.0
 cssutils==2.3.0
 databases==0.5.3
@@ -43,7 +43,7 @@ pycparser==2.20
 pydantic==1.8.2
 pylint==2.12.2
 python-dateutil==2.8.2
-python-dotenv==0.19.0
+python-dotenv==0.19.2
 python-jose==3.3.0
 python-multipart==0.0.5
 PyYAML==5.4.1
