@@ -27,7 +27,7 @@ h11==0.12.0
 identify==2.2.14
 idna==3.3
 isort==5.10.1
-Jinja2==3.0.1
+Jinja2==3.0.3
 lazy-object-proxy==1.7.0
 lxml==4.7.1
 MarkupSafe==2.0.1
