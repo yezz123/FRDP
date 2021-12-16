@@ -48,7 +48,7 @@ python-jose==3.3.0
 python-multipart==0.0.5
 PyYAML==5.4.1
 requests==2.26.0
-rsa==4.7.2
+rsa==4.8
 six==1.16.0
 SQLAlchemy==1.4.28
 starlette==0.14.2
