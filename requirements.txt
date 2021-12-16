@@ -50,7 +50,7 @@ PyYAML==5.4.1
 requests==2.26.0
 rsa==4.7.2
 six==1.16.0
-SQLAlchemy==1.4.23
+SQLAlchemy==1.4.28
 starlette==0.14.2
 toml==0.10.2
 typing-extensions==4.0.1
