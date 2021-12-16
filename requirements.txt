@@ -5,7 +5,7 @@ backports.entry-points-selectable==1.1.1
 bcrypt==3.2.0
 cachetools==4.2.4
 certifi==2021.10.8
-cffi==1.14.6
+cffi==1.15.0
 cfgv==3.3.1
 chardet==4.0.0
 charset-normalizer==2.0.9
@@ -28,7 +28,7 @@ identify==2.2.14
 idna==3.3
 isort==5.10.1
 Jinja2==3.0.3
-lazy-object-proxy==1.7.0
+lazy-object-proxy==1.7.1
 lxml==4.7.1
 MarkupSafe==2.0.1
 mccabe==0.6.1
@@ -46,7 +46,7 @@ python-dateutil==2.8.2
 python-dotenv==0.19.2
 python-jose==3.3.0
 python-multipart==0.0.5
-PyYAML==5.4.1
+PyYAML==6.0
 requests==2.26.0
 rsa==4.7.2
 six==1.16.0
@@ -55,6 +55,6 @@ starlette==0.14.2
 toml==0.10.2
 typing-extensions==4.0.1
 urllib3==1.26.7
-uvicorn==0.15.0
+uvicorn==0.16.0
 virtualenv==20.10.0
 wrapt==1.13.3
