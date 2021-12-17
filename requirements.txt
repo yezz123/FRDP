@@ -15,7 +15,7 @@ cryptography==36.0.1
 cssselect==1.1.0
 cssutils==2.3.0
 databases==0.5.3
-distlib==0.3.2
+distlib==0.3.4
 dnspython==2.1.0
 ecdsa==0.17.0
 email-validator==1.1.3
