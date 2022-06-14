@@ -14,7 +14,7 @@ colorama==0.4.4
 cryptography==36.0.1
 cssselect==1.1.0
 cssutils==2.3.0
-databases==0.5.3
+databases==0.6.0
 distlib==0.3.4
 dnspython==2.1.0
 ecdsa==0.17.0
