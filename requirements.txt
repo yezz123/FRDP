@@ -29,7 +29,7 @@ idna==3.3
 isort==5.10.1
 Jinja2==3.0.3
 lazy-object-proxy==1.7.1
-lxml==4.7.1
+lxml==4.9.1
 MarkupSafe==2.0.1
 mccabe==0.6.1
 nodeenv==1.6.0
