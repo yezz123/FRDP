@@ -1,5 +1,5 @@
 aiofiles==0.8.0
-asgiref==3.4.1
+asgiref==3.5.2
 astroid==2.9.0
 backports.entry-points-selectable==1.1.1
 bcrypt==3.2.0
