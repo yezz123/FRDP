@@ -23,7 +23,7 @@ emails==0.6
 fastapi==0.68.1
 filelock==3.4.0
 greenlet==1.1.2
-h11==0.12.0
+h11==0.14.0
 identify==2.4.0
 idna==3.3
 isort==5.10.1
